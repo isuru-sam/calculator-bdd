@@ -9,6 +9,9 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import com.math.calculator.Calculator;
 
+import cucumber.api.java.After;
+import cucumber.api.java.Before;
+
 import org.junit.Assert;
 import net.thucydides.core.annotations.Step;
 @RunWith(SpringRunner.class)
@@ -20,9 +23,22 @@ int x;
 
 
 int y;
+
 @Autowired
 Calculator calculator;
+
 int z;
+
+@Before
+public void beforall() {
+	System.out.println("==================Before");
+}
+
+@After
+public void afterall() {
+	System.out.println("==================After");
+}
+
 @Step
 public void setInput(int x,int y) {
 	this.x=x;
